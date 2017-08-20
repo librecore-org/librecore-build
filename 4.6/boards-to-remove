@@ -122,11 +122,17 @@ tyan/s8226
 google/butterfly
 google/link
 google/stout
+google/parrot
 intel/emeraldlake2
 samsung/lumpy
 samsung/stumpy
 # exynos
 google/daisy
+# qualcomm
+google/gale
+google/storm
+# EC (?)
+google/peach_pit
 # riscv
 lowrisc/nexys4ddr
 # AMD Geode
@@ -139,16 +145,6 @@ amd/norwich
 amd/rumba
 amd/samba
 winent/pl6064
-# ARM 64 bit (remove from this list when compiler is available)
-google/foster
-google/gale
-google/gru
-google/oak
-google/parrot
-google/peach_pit
-google/rotor
-google/smaug
-google/storm
 # mips
 google/urara
 # Remove manufacturer + all their boards
