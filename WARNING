@@ -1,0 +1,6 @@
+DO NOT FLASH `./build/VENDOR_MODEL/coreboot.rom` directly to your device.
+
+There is currently a 100% chance of bricking your device
+since there are no payloads yet.
+
+You have been warned!

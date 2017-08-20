@@ -1,0 +1,5 @@
+src/cpu/dmp/vortex86ex/dmp_kbd_fw_part1.inc
+src/vendorcode/google/chromeos/build-snow.sh
+# Clobber AGESA vendor code
+src/vendorcode/amd/agesa
+src/vendorcode/amd/cimx
