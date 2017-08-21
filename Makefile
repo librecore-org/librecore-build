@@ -7,15 +7,14 @@ get-dev-librecore:
 	$(shell mkdir -p $(RELEASE))
 	$(shell rm -fr $(RELEASE)/librecore-$(RELEASE))
 	$(shell cd $(RELEASE) && ../scripts/get-librecore.sh $(RELEASE))
+	$(shell cd $(RELEASE) && ../scripts/get-microcode.sh $(RELEASE))
 
 get-deblob-coreboot:
 	$(shell mkdir -p $(RELEASE))
 	$(shell rm -fr $(RELEASE)/librecore-$(RELEASE))
 	$(shell cd $(RELEASE) && ../scripts/get-coreboot.sh $(RELEASE))
-	$(shell cd $(RELEASE) && ../scripts/get-microcode.sh)
 	$(shell cd $(RELEASE) && ../scripts/deblob-coreboot.sh $(RELEASE))
-	$(shell rm -fr $(RELEASE)/coreboot-$(RELEASE))
-	$(shell rm -fr $(RELEASE)/microcode)
+	$(shell cd $(RELEASE) && ../scripts/get-microcode.sh $(RELEASE))
 
 test-all:
 	@if [ ! -d $(RELEASE)/librecore-$(RELEASE) ]; then \

@@ -9,7 +9,7 @@ LC="librecore-${COREBOOT_RELEASE}"
 rm -fr ${LC}
 rm -fr ${CB}
 tar Jxf ${CB}.tar.xz
-cp -a ${CB} ${LC}
+mv ${CB} ${LC}
 
 for b in $(cat blobs-to-remove | grep -Ev "^#" | xargs); do
 	if [ -d "${LC}/$b" ]; then
@@ -30,9 +30,3 @@ for b in $(cat boards-to-remove | grep -Ev "^#" | xargs); do
 done
 
 cp abuild ${LC}/util/abuild/
-
-# We consider signed CPU microcode updates as essential errata to silicon
-# therefore we include it in Librecore builds
-mkdir -p ${LC}/3rdparty/blobs/cpu
-cp -a microcode/intel ${LC}/3rdparty/blobs/cpu
-cp -a microcode/amd ${LC}/3rdparty/blobs/cpu
