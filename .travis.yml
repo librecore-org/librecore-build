@@ -10,9 +10,6 @@ branches:
   only:
   - master
 
-cache:
-  - ccache
-
 addons:
   apt:
     sources:
@@ -21,6 +18,7 @@ addons:
     - g++-6
 
 before_install:
+    - sudo apt-get remove gcc g++
     - wget -c http://zamaudio.com/mbox2/librecore-xgcc_1.46-3.fc25_amd64.deb
     - sudo dpkg -i librecore-xgcc_1.46-3.fc25_amd64.deb
     - export PATH=${PATH}:/opt/xgcc-1.46/bin
