@@ -13,6 +13,13 @@ branches:
 cache:
   - ccache
 
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-6
+
 before_install:
     - wget -c http://zamaudio.com/mbox2/librecore-xgcc_1.46-3.fc25_amd64.deb
     - sudo dpkg -i librecore-xgcc_1.46-3.fc25_amd64.deb
