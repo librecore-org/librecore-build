@@ -16,4 +16,4 @@ services:
 before_install:
     - docker pull fedora:25
 
-script: docker run -v .:/root fedora:25 "sudo dnf copr enable damo22/librecore-xgcc && sudo dnf install librecore-xgcc && export PATH=${PATH}:/opt/xgcc-1.46/bin && cd /root && i386-elf-gcc --version && arm-eabi-gcc --version && aarch64-elf-gcc --version && make get-dev-librecore && make test-all"
+script: docker run -v `pwd`:/root fedora:25 "sudo dnf copr enable damo22/librecore-xgcc && sudo dnf install librecore-xgcc && export PATH=${PATH}:/opt/xgcc-1.46/bin && cd /root && i386-elf-gcc --version && arm-eabi-gcc --version && aarch64-elf-gcc --version && make get-dev-librecore && make test-all"
