@@ -1,4 +1,4 @@
-sudo: true
+sudo: required
 dist: trusty
 
 language: c
@@ -10,20 +10,10 @@ branches:
   only:
   - master
 
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-6
+services:
+  - docker
 
 before_install:
-    - sudo apt-get remove gcc g++
-    - wget -c http://zamaudio.com/mbox2/librecore-xgcc_1.46-3.fc25_amd64.deb
-    - sudo dpkg -i librecore-xgcc_1.46-3.fc25_amd64.deb
-    - export PATH=${PATH}:/opt/xgcc-1.46/bin
-    - i386-elf-gcc --version
-    - arm-eabi-gcc --version
-    - aarch64-elf-gcc --version
+    - docker pull fedora:25
 
-script: make get-dev-librecore && make test-all
+script: docker run -v .:/root fedora:25 "sudo dnf copr enable damo22/librecore-xgcc && sudo dnf install librecore-xgcc && export PATH=${PATH}:/opt/xgcc-1.46/bin && cd /root && i386-elf-gcc --version && arm-eabi-gcc --version && aarch64-elf-gcc --version && make get-dev-librecore && make test-all"
