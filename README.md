@@ -1,4 +1,4 @@
-librecore-build
+librecore-build [![travis](https://travis-ci.org/librecore-org/librecore-build.svg?branch=master)](https://travis-ci.org/librecore-org/librecore-build)
 ===============
 
 This is a set of build scripts to compile librecore roms.
